@@ -1,0 +1,32 @@
+<!-- src/app/chat/chat.component.html -->
+<div class="chat-container">
+    <!-- Input for Sender and Receiver IDs -->
+    <div class="user-ids">
+      <input type="text" placeholder="Sender ID" [(ngModel)]="senderId">
+      <input type="text" placeholder="Receiver ID" [(ngModel)]="receiverId">
+      <button (click)="loadMessages()">Load Chat</button>
+    </div>
+  
+    <!-- Chat Messages Display -->
+    <div class="messages" *ngIf="messages$ | async as messages; else noChat">
+      <div *ngFor="let msg of messages" class="message-container"
+           [ngClass]="{'sent': msg.senderId === senderId, 'received': msg.senderId !== senderId}">
+        <div class="message-content">
+          {{ msg.message }}
+        </div>
+        <div class="message-timestamp">
+          {{ msg.timestamp?.toDate() | date:'shortTime' }}
+        </div>
+      </div>
+    </div>
+    <ng-template #noChat>
+      <p>Please enter Sender and Receiver IDs and click "Load Chat".</p>
+    </ng-template>
+  
+    <!-- Message Input Field -->
+    <div class="send-message">
+      <input type="text" placeholder="Enter message" [(ngModel)]="messageText">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+  

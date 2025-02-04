@@ -1,0 +1,79 @@
+/* src/app/chat/chat.component.css */
+.chat-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+  }
+  
+  .user-ids,
+  .send-message {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .user-ids input,
+  .send-message input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem;
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-container {
+    max-width: 70%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sent {
+    align-self: flex-end;
+  }
+  
+  .received {
+    align-self: flex-start;
+  }
+  
+  .message-content {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+  
+  /* Styling for sent messages */
+  .sent .message-content {
+    background-color: #dcf8c6; /* light green */
+    color: #000;
+  }
+  
+  /* Styling for received messages */
+  .received .message-content {
+    background-color: #fff;
+    border: 1px solid #ececec;
+    color: #000;
+  }
+  
+  .message-timestamp {
+    font-size: 10px;
+    color: #999;
+    margin-top: 2px;
+    text-align: right;
+  }
+  
